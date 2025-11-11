@@ -13,12 +13,11 @@ def get_language_keyboard(language: Language) -> InlineKeyboardMarkup:
 def get_config_menu(language: Language) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text=localization.get_text(language, "display_my_splits"), callback_data="displaySplits")],
+            [InlineKeyboardButton(text=localization.get_text(language, "splits_button"), callback_data="splits")],
             [InlineKeyboardButton(text=localization.get_text(language, "language_button"), callback_data="OpenLanguageMenu")],
             [InlineKeyboardButton(text=localization.get_text(language, "start_tracking_button"), callback_data="start_tracking")],
         ]
     )
-
 def get_config_menu_active(language: Language) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[

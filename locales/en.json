@@ -49,6 +49,8 @@
     "unknown_version": "Unknown version",
     "completed_run": "COMPLETED",
     "splits_link": "Splits",
+    "splits_button": "Splits",
+    "configure_splits_first": "Configure splits first to start tracking",
     "no_milestones": "No milestone events yet",
     "pearls": "Pearls",
     "rods": "Rods"

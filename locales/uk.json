@@ -49,6 +49,8 @@
     "unknown_version": "Невідома версія",
     "completed_run": "ЗАВЕРШЕНО",
     "splits_link": "Спліти",
+    "splits_button": "Спліти",
+    "configure_splits_first": "Налаштуй спліти перед відстеженням",
     "no_milestones": "Поки що немає подій",
     "pearls": "Перлини",
     "rods": "Жезли"
