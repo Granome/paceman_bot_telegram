@@ -28,8 +28,8 @@
     "please_use_commands": "🤖 Please use commands or menu buttons!",
     "configuration_disabled": "❌ Configuration is disabled while tracking is active. Use /stop_tracking first.",
     "split_names": {
-        "Bastion": "Бастіон",
-        "Fortress": "Фортеця",
+        "Bastion": "Bastion",
+        "Fortress": "Fortress",
         "Second Structure": "Second Structure",
         "Blind": "Blind",
         "Eye Spy": "Eye Spy", 
