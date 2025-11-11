@@ -174,7 +174,8 @@ async def start_handler(message: Message, state: FSMContext):
             await state.set_state(UserStates.tracking_mode)
         else:
             await state.set_state(UserStates.config_mode)
-    
+            
+    user = user_manager.get_user(user_id)
     await message.answer(localization.get_text(user.language, "start"), reply_markup=keyboards.get_language_keyboard(user.language))
 
 async def sync_user_state(user_id: int, state: FSMContext):

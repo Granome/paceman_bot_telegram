@@ -1,1 +1,1 @@
-web: python src/bot.py
+paceman-bot: python src/bot.py
