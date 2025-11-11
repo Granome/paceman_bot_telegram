@@ -10,7 +10,7 @@ class Localization:
     
     def load_locales(self):
         """Load all locale files"""
-        locales_dir = "locales"
+        locales_dir = os.path.join(os.path.dirname(__file__), "..", "locales")
         for filename in os.listdir(locales_dir):
             if filename.endswith('.json'):
                 lang_code = filename.split('.')[0]
