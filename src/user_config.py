@@ -2,6 +2,7 @@ import json
 from typing import Dict, Any
 import os
 import time
+import config
 
 import json
 from typing import Dict, Any, List, Optional
@@ -81,7 +82,7 @@ class UserManager:
     """Manager for handling user operations"""
     
     def __init__(self, config_file: str = "users.json"):
-        self.config_file = config_file
+        self.config_file = os.path.join(config.USERS_FILE_PATH, config_file)
         self._ensure_config_file()
     
     def _ensure_config_file(self) -> None:
