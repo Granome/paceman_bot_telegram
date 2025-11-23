@@ -83,15 +83,15 @@ class RunTracker:
         if cache_key in self.last_event_hashes:
             del self.last_event_hashes[cache_key]
         
-        try:
-            await self.bot.delete_message(
-                chat_id=user_id,
-                message_id=message_id
-            )
-            return True
-        except Exception as e:
-            print(f"Error deleting message for user {user_id}, run {world_id}: {e}")
-            return False
+        # try:
+        #     await self.bot.delete_message(
+        #         chat_id=user_id,
+        #         message_id=message_id
+        #     )
+        #     return True
+        # except Exception as e:
+        #     print(f"Error deleting message for user {user_id}, run {world_id}: {e}")
+        #     return False
     
     def _format_run_message(self, run_data: dict, language: Language) -> str:
         """Format run data into a readable message with IGT times"""

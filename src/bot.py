@@ -1,4 +1,5 @@
 import asyncio
+import os
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
@@ -6,6 +7,7 @@ from config import BOT_TOKEN, POLL_INTERVAL, ADMIN_ID
 from aiogram.filters import StateFilter
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
+from aiogram.types import FSInputFile
 
 from run_tracker import RunTracker
 from paceman_api import  fetch_live_runs
@@ -550,6 +552,35 @@ async def config_menu_handler(callback_query: CallbackQuery, state: FSMContext):
             parse_mode="HTML",
             reply_markup=keyboards.get_end_menu(user.language)
         )
+
+@dp.message(Command("get_users"))
+async def get_users_file(message: Message):
+    """Admin command to fetch the users file"""
+    user_id = message.from_user.id
+    user = user_manager.get_user(user_id)
+    
+    # Check if user is admin
+    if not user or user.role != UserRole.ADMIN:
+        await message.answer("❌ This command is for administrators only.")
+        return
+    
+    config_file = user_manager.config_file
+    
+    try:
+        # Check if file exists
+        if not os.path.exists(config_file):
+            await message.answer("❌ Users file not found.")
+            return
+        
+        # Send the file
+        file = FSInputFile(config_file, filename="users.json")
+        await message.answer_document(
+            document=file,
+            caption="📊 Users database file"
+        )
+        
+    except Exception as e:
+        await message.answer(f"❌ Error fetching users file: {e}")
 
 async def main():
     polling_task = asyncio.create_task(dp.start_polling(bot))
